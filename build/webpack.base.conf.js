@@ -15,7 +15,7 @@ var entry = {
 }
 
 pages.forEach(page => {
-  entry[page] = resolve(`./src/${page}/main.js`)
+  entry[page.path] = resolve(`./src/${page.path}/main.js`)
 })
 
 module.exports = {

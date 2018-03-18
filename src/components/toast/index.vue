@@ -2,9 +2,17 @@
   <div class="vux-toast">
     <div class="weui-mask_transparent" v-show="isShowMask && show"></div>
     <transition :name="currentTransition">
-      <div class="weui-toast" :style="{width: width}" :class="toastClass" v-show="show">
+      <div class="weui-toast" :style="{width: width}" :class="{
+        'weui-toast_forbidden': type === 'warn',
+        'weui-toast_cancel': type === 'cancel',
+        'weui-toast_success': type === 'success',
+        'weui-toast_text': type === 'text',
+        'vux-toast-top': position === 'top',
+        'vux-toast-bottom': position === 'bottom',
+        'vux-toast-middle': position === 'middle'
+      }" v-show="show">
         <i class="weui-icon-success-no-circle weui-icon_toast" v-show="type !== 'text'"></i>
-        <p class="weui-toast__content" v-if="text" :style="style" v-html="$t(text)"></p>
+        <p class="weui-toast__content" v-if="text" :style="style">{{text}}</p>
         <p class="weui-toast__content" v-else :style="style">
           <slot></slot>
         </p>
@@ -14,11 +22,8 @@
 </template>
 
 <script>
-import SafariFixIssue from '../../mixins/safari-fix'
-
 export default {
   name: 'toast',
-  mixins: [SafariFixIssue],
   props: {
     value: Boolean,
     time: {
@@ -86,14 +91,12 @@ export default {
       if (val) {
         this.$emit('input', true)
         this.$emit('on-show')
-        this.fixSafariOverflowScrolling('auto')
 
         clearTimeout(this.timeout)
         this.timeout = setTimeout(() => {
           this.show = false
           this.$emit('input', false)
           this.$emit('on-hide')
-          this.fixSafariOverflowScrolling('touch')
         }, this.time)
       }
     },
