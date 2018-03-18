@@ -5,11 +5,6 @@ module.exports = [
     status: 'doing'
   },
   {
-    name: 'agree',
-    path: 'pages/demos/agree',
-    status: 'todo'
-  },
-  {
     name: 'alert',
     path: 'pages/demos/alert',
     status: 'doing'
