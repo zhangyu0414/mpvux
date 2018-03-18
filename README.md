@@ -1,6 +1,6 @@
 <p align="center">
   <a href="http://vux.li">
-    <img src="https://i.loli.net/2017/11/20/5a12187ebf2e0.png" width="175">
+    <img src="./logo.png" width="175">
   </a>
 </p>
 <p align="center">Be Cool with Vue@^2.3.0 and WeUI.</p>
@@ -15,44 +15,37 @@
   </a>
   <br>
   <br>
-  <a href="https://github.com/airyland/vux">
+  <a href="https://github.com/F-loat/mpvux">
     <img src="https://img.shields.io/github/stars/airyland/vux.svg?style=social&label=Star" alt="">
   </a>
-  <a href="https://github.com/airyland/vux">
+  <a href="https://github.com/F-loat/mpvux">
     <img src="https://img.shields.io/github/forks/airyland/vux.svg?style=social&label=Fork" alt="">
   </a>
-  <a href="https://github.com/airyland/vux">
+  <a href="https://github.com/F-loat/mpvux">
     <img src="https://img.shields.io/github/watchers/airyland/vux.svg?style=social&label=Watch" alt="">
   </a>
   <br>
   <br>
-  <a href="https://travis-ci.org/airyland/vux">
-    <img src="https://api.travis-ci.org/airyland/vux.svg?branch=v2" alt="">
-  </a>
-  <a href="https://codecov.io/gh/airyland/vux/branch/v2">
-    <img src="https://img.shields.io/codecov/c/github/airyland/vux/v2.svg" alt="">
-  </a>
-  <br>
-  <a href="https://github.com/airyland/vux/issues">
+  <a href="https://github.com/F-loat/mpvux/issues">
     <img src="https://img.shields.io/github/issues/airyland/vux.svg?style=flat-square" alt="">
   </a>
-  <a href="https://github.com/airyland/vux/issues">
+  <a href="https://github.com/F-loat/mpvux/issues">
     <img src="http://isitmaintained.com/badge/resolution/airyland/vux.svg?style=flat-square" alt="">
   </a>
-  <a href="https://github.com/airyland/vux/graphs/contributors">
+  <a href="https://github.com/F-loat/mpvux/graphs/contributors">
     <img src="https://img.shields.io/github/contributors/airyland/vux.svg?style=flat-square" alt="">
   </a>
   <br>
-  <a href="https://www.npmjs.com/package/vux">
+  <a href="https://www.npmjs.com/package/mpvux">
     <img src="https://img.shields.io/npm/l/vux.svg?style=flat-square" alt="">
   </a>
-  <a href="https://www.npmjs.com/package/vux">
+  <a href="https://www.npmjs.com/package/mpvux">
     <img src="https://img.shields.io/npm/v/vux.svg?style=flat-square" alt="">
   </a>
-  <a href="https://www.npmjs.com/package/vux">
+  <a href="https://www.npmjs.com/package/mpvux">
     <img src="https://img.shields.io/npm/dm/vux.svg?style=flat-square" alt="">
   </a>
-  <a href="https://www.npmjs.com/package/vux">
+  <a href="https://www.npmjs.com/package/mpvux">
     <img src="https://img.shields.io/npm/dt/vux.svg?style=flat-square" alt="">
   </a>
   <br>
@@ -70,7 +63,7 @@
 + [中文文档](https://vux.li/)
 + English(working)
 
-## Issues 
+## Issues
 
 `VUX` 并不是大团队维护的项目，**没有捐赠，纯靠热情**，维护者有权决定什么时候处理什么问题，什么问题不处理。
 <br>**入坑请万分谨慎**。
@@ -79,19 +72,6 @@
 
 - 任何描述不清楚、代码(拜托请别截图)懒得给出的 issue 将会直接 `关闭`、`锁定`、打上 `yet another bad issue 标签`;
 - 在 issue 下提无关问题会被直接 `删除`;
-
-## Quick Start
-
-> vux2 template(https://github.com/airyland/vux2) is directly modified from Vue official webpack template(https://github.com/vuejs-templates/webpack).
-
-``` bash
-npm install vue-cli -g
-vue init airyland/vux2 projectPath
-
-cd projectPath
-npm install // or yarn
-npm run dev // or yarn dev
-```
 
 ## Maintainers
 
@@ -122,4 +102,4 @@ MIT
 
 ## Donate
 
-It takes time to maintain VUX. 
+It takes time to maintain VUX.

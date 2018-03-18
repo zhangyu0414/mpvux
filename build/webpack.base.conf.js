@@ -1,85 +1,96 @@
 var path = require('path')
-var config = require('../config')
-var utils = require('./utils')
-var projectRoot = path.resolve(__dirname, '../')
 var fs = require('fs')
+var utils = require('./utils')
+var config = require('../config')
 var vueLoaderConfig = require('./vue-loader.conf')
+var pages = require('../src/pages')
 
-var argv = require('yargs').argv
-argv.simulate = argv.simulate || false
-
-function resolve (dir) {
+function resolve(dir) {
   return path.join(__dirname, '..', dir)
 }
 
-const webpackConfig = {
-  entry: {
-    app: './src/main.js'
-  },
+var entry = {
+  app: resolve('./src/main.js'),
+  'pages/home': resolve('./src/pages/home/main.js')
+}
+
+pages.forEach(page => {
+  entry[page] = resolve(`./src/${page}/main.js`)
+})
+
+module.exports = {
+  entry,
+  target: require('mpvue-webpack-target'),
   output: {
     path: config.build.assetsRoot,
     filename: '[name].js',
-    publicPath: process.env.NODE_ENV === 'production'
-      ? config.build.assetsPublicPath
-      : config.dev.assetsPublicPath
+    publicPath:
+      process.env.NODE_ENV === 'production'
+        ? config.build.assetsPublicPath
+        : config.dev.assetsPublicPath
   },
   resolve: {
     extensions: ['.js', '.vue', '.json'],
-    modules: [
-      resolve('src'),
-      resolve('node_modules')
-    ],
     alias: {
-      'vue$': 'vue/dist/vue.common.js',
-      'src': resolve('src'),
-      'assets': resolve('src/assets'),
-      'components': resolve('src/components'),
+      vue: 'mpvue',
+      mpvux: resolve('src/components'),
       '@': resolve('src')
-    }
+    },
+    symlinks: false
   },
   module: {
     rules: [
       {
         test: /\.(js|vue)$/,
         loader: 'eslint-loader',
-        enforce: "pre",
+        enforce: 'pre',
         include: [resolve('src'), resolve('test')],
-        exclude: /vue.vux.js$/,
         options: {
           formatter: require('eslint-friendly-formatter')
         }
       },
       {
         test: /\.vue$/,
-        loader: 'vue-loader',
+        loader: 'mpvue-loader',
         options: vueLoaderConfig
       },
       {
         test: /\.js$/,
-        loader: 'babel-loader',
-        include: [resolve('src'), resolve('test')]
+        include: [resolve('src'), resolve('test')],
+        use: [
+          'babel-loader',
+          {
+            loader: 'mpvue-loader',
+            options: {
+              checkMPEntry: true
+            }
+          }
+        ]
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
         loader: 'url-loader',
-        query: {
+        options: {
           limit: 10000,
-          name: utils.assetsPath('img/[name].[hash:7].[ext]')
+          name: utils.assetsPath('img/[name].[ext]')
+        }
+      },
+      {
+        test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/,
+        loader: 'url-loader',
+        options: {
+          limit: 10000,
+          name: utils.assetsPath('media/[name]].[ext]')
         }
       },
       {
         test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
         loader: 'url-loader',
-        query: {
+        options: {
           limit: 10000,
-          name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
+          name: utils.assetsPath('fonts/[name].[ext]')
         }
       }
     ]
   }
 }
-
-const vuxLoader = require('vux-loader')
-const vuxConfig = require('./vux-config')
-module.exports = vuxLoader.merge(webpackConfig, vuxConfig)
-
