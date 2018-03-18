@@ -1,8 +1,8 @@
 <template>
   <div class="vux-check-icon" @click="updateValue">
-    <icon type="success" v-show="type === 'default' && value"></icon>
-    <icon type="success_circle" v-show="type === 'plain' && value"></icon>
-    <icon type="circle" v-show="!value"></icon>
+    <icon type="success" v-if="type === 'default' && value"></icon>
+    <icon type="success_circle" v-if="type === 'plain' && value"></icon>
+    <icon type="circle" v-if="!value"></icon>
     <span><slot></slot></span>
   </div>
 </template>
@@ -39,7 +39,7 @@ export default {
 .vux-check-icon {
   display: inline-block;
 }
-.vux-check-icon > span {
+.vux-check-icon > .weui-icon-circle {
   line-height: 23px;
   color: #222;
   vertical-align: middle;

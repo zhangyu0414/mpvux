@@ -62,7 +62,7 @@ module.exports = [
   {
     name: 'check-icon',
     path: 'pages/demos/check-icon',
-    status: 'todo'
+    status: 'done'
   },
   {
     name: 'checklist',
