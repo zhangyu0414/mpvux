@@ -1,5 +1,8 @@
 <template>
-  <span v-text="text" :class="['vux-badge', {'vux-badge-dot': typeof text === 'undefined', 'vux-badge-single': typeof text !== 'undefined' && text.toString().length === 1}]"></span>
+  <span class="vux-badge" :class="{
+    'vux-badge-dot': !text,
+    'vux-badge-single': text && text.length === 1
+  }">{{text}}</span>
 </template>
 
 <script>
