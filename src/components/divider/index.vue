@@ -20,6 +20,7 @@ export default {
   text-align: center;
   padding: 10px 0;
   color: #666;
+  font-size: 11pt;
 }
 
 .vux-divider:after,.vux-divider:before {

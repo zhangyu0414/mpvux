@@ -1,19 +1,21 @@
 <template>
   <div class="wrap">
+    <divider>{{text}}</divider>
   </div>
 </template>
 
 <script>
-import loadMore from 'mpvux/load-more'
+import divider from 'mpvux/divider'
 
 export default {
   components: {
-    loadMore
+    divider
   },
   methods: {
   },
   data () {
     return {
+      text: '我是有底线的'
     }
   }
 }

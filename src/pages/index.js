@@ -117,7 +117,7 @@ module.exports = [
   {
     name: 'divider',
     path: 'pages/demos/divider',
-    status: 'todo'
+    status: 'done'
   },
   {
     name: 'drawer',
